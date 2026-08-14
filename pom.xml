@@ -19,5 +19,6 @@
         <module>parking-space-service</module>
         <module>user-service/user-service</module>
         <module>vehicle-service</module>
+        <module>payment-service</module>
     </modules>
 </project>
