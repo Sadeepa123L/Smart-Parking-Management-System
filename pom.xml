@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.spms</groupId>
+    <artifactId>spms-workspace-aggregator</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>SPMS Workspace</name>
+    <description>Aggregator POM to help the IDE index all microservices correctly</description>
+
+    <modules>
+        <module>api-gateway/api-gateway</module>
+        <module>config-server/config-server</module>
+        <module>eureka-server/eureka-server</module>
+        <module>parking-space-service</module>
+        <module>user-service/user-service</module>
+        <module>vehicle-service</module>
+    </modules>
+</project>
