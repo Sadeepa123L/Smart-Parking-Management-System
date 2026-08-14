@@ -1,0 +1,254 @@
+{
+  "info": {
+    "name": "Smart Parking Management System (SPMS)",
+    "description": "Postman Collection for all SPMS microservices (User, Vehicle, Parking Space, Payment) routed through the API Gateway on port 8080.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Service",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phoneNumber\": \"0771234567\",\n  \"role\": \"CUSTOMER\"\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/user-service/api/user/register",
+              "host": ["{{gateway_url}}"],
+              "path": ["user-service", "api", "user", "register"]
+            }
+          }
+        },
+        {
+          "name": "Authenticate User",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/user-service/api/user/authenticate",
+              "host": ["{{gateway_url}}"],
+              "path": ["user-service", "api", "user", "authenticate"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/user-service/api/user/1",
+              "host": ["{{gateway_url}}"],
+              "path": ["user-service", "api", "user", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"email\": \"john@example.com\",\n  \"phoneNumber\": \"0777654321\",\n  \"role\": \"CUSTOMER\"\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/user-service/api/user/1",
+              "host": ["{{gateway_url}}"],
+              "path": ["user-service", "api", "user", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/user-service/api/user",
+              "host": ["{{gateway_url}}"],
+              "path": ["user-service", "api", "user"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vehicle Service",
+      "item": [
+        {
+          "name": "Register Vehicle",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"licensePlate\": \"ABC-1234\",\n  \"type\": \"Car\",\n  \"userId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/vehicle-service/api/vehicles",
+              "host": ["{{gateway_url}}"],
+              "path": ["vehicle-service", "api", "vehicles"]
+            }
+          }
+        },
+        {
+          "name": "Update Vehicle",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"licensePlate\": \"ABC-1234\",\n  \"type\": \"SUV\",\n  \"userId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/vehicle-service/api/vehicles/1",
+              "host": ["{{gateway_url}}"],
+              "path": ["vehicle-service", "api", "vehicles", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Vehicle by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/vehicle-service/api/vehicles/1",
+              "host": ["{{gateway_url}}"],
+              "path": ["vehicle-service", "api", "vehicles", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Vehicles by User ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/vehicle-service/api/vehicles/user/1",
+              "host": ["{{gateway_url}}"],
+              "path": ["vehicle-service", "api", "vehicles", "user", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get All Vehicles",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/vehicle-service/api/vehicles",
+              "host": ["{{gateway_url}}"],
+              "path": ["vehicle-service", "api", "vehicles"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Parking Space Service",
+      "item": [
+        {
+          "name": "Add Parking Space",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"L1\",\n  \"status\": \"AVAILABLE\",\n  \"type\": \"Car\",\n  \"pricePerHour\": 100.0\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/parking-space-service/api/parking-spaces/add",
+              "host": ["{{gateway_url}}"],
+              "path": ["parking-space-service", "api", "parking-spaces", "add"]
+            }
+          }
+        },
+        {
+          "name": "Get All Parking Spaces",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/parking-space-service/api/parking-spaces/getAll",
+              "host": ["{{gateway_url}}"],
+              "path": ["parking-space-service", "api", "parking-spaces", "getAll"]
+            }
+          }
+        },
+        {
+          "name": "Search Parking Spaces",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/parking-space-service/api/parking-spaces/search?locationId=L1&type=Car",
+              "host": ["{{gateway_url}}"],
+              "path": ["parking-space-service", "api", "parking-spaces", "search"],
+              "query": [
+                { "key": "locationId", "value": "L1" },
+                { "key": "type", "value": "Car" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payment Service",
+      "item": [
+        {
+          "name": "Process Payment",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": 1,\n  \"bookingId\": 101,\n  \"amount\": 500.0,\n  \"creditCardNumber\": \"1234567890123456\"\n}"
+            },
+            "url": {
+              "raw": "{{gateway_url}}/payment-service/api/payments/process",
+              "host": ["{{gateway_url}}"],
+              "path": ["payment-service", "api", "payments", "process"]
+            }
+          }
+        },
+        {
+          "name": "Get Payment Receipt",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{gateway_url}}/payment-service/api/payments/REC-XXXXXXXXX",
+              "host": ["{{gateway_url}}"],
+              "path": ["payment-service", "api", "payments", "REC-XXXXXXXXX"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "gateway_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

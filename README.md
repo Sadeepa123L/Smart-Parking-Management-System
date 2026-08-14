@@ -44,7 +44,7 @@ To make testing easy, a complete Postman collection has been generated containin
 
 When all services are running successfully, they register themselves with the Eureka Server. You can monitor the health and status of the services via the Eureka Dashboard (`http://localhost:8761`).
 
-![Eureka Dashboard showing active services](assets/eureka-dashboard.webp)
+![Eureka Dashboard showing active services](eureka-dashboard.png)
 
 ## 🛠️ How to Run Locally
 
